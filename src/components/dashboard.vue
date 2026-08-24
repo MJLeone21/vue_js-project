@@ -3,258 +3,257 @@
 </script>
 
 <template>
-    <main>
-        <header>
-    <div class="header-container">
-      <h1 class="logo">Oyera<br /><span>Auto</span></h1>
-    </div>
-  </header>
-
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="Home.html">Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="adminDashboard.html">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Booking.html">Booking</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Technicians.html">Technicians</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Inventory.html">Inventory</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              More
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="Settings.html">Settings</a></li>
-              <li><a class="dropdown-item" href="Help.html">Help</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="Logout.html">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+  <main>
+    <header>
+      <div class="header-container">
+        <h1 class="logo">Oyera<br /><span>Auto</span></h1>
       </div>
-    </div>
-  </nav>
+    </header>
 
-  <div class="container py-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <div>
-        <h2 class="mb-1">Admin Dashboard</h2>
-        <p class="text-muted mb-0">Oyera Auto Service Bay</p>
-        <p class="text-muted mb-0">Overview of users, technicians, and inventory</p>
-      </div>
-    </div>
-
-    <!-- Stats Cards with Emojis -->
-    <div class="row g-3 mb-4">
-      <div class="col-md-3">
-        <div class="card stat-card p-3 text-center">
-          <div class="text-muted small">👥 Total Users</div>
-          <h3>0</h3>
-          <small class="text-muted">Active Users: 0</small>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="Home.html">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="adminDashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Booking.html">Booking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Technicians.html">Technicians</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Inventory.html">Inventory</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                More
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Settings.html">Settings</a></li>
+                <li><a class="dropdown-item" href="Help.html">Help</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="Logout.html">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="card stat-card p-3 text-center">
-          <div class="text-muted small">🧑‍🔧 Technicians</div>
-          <h3>0</h3>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card stat-card p-3 text-center">
-          <div class="text-muted small">📦 Inventory</div>
-          <h3>0</h3>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card stat-card p-3 text-center">
-          <div class="text-muted small">💰 Total Revenue</div>
-          <h3>0</h3>
-        </div>
-      </div>
-    </div>
+    </nav>
 
-    <!-- Recent Activity -->
-    <div class="card p-3 mb-4">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h5 class="mb-0">Recent Activity</h5>
-        <input type="search" class="form-control w-auto" style="max-width: 280px;"
-          placeholder="Search records" />
+    <div class="container py-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="mb-1">Admin Dashboard</h2>
+          <p class="text-muted mb-0">Oyera Auto Service Bay</p>
+          <p class="text-muted mb-0">Overview of users, technicians, and inventory</p>
+        </div>
       </div>
-      <div>
-        <p class="text-muted">No recent activity logged.</p>
-      </div>
-    </div>
 
-    <!-- Services Booked Table with Book Service Button -->
-    <div class="row g-4">
-      <div class="col-lg-6">
-        <div class="card p-3">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5 class="mb-0">📝 Services Booked</h5>
-            <a href="Booking.html" class="btn btn-primary btn-sm">+ Book Service</a>
+      <!-- Stats Cards with Emojis -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-3">
+          <div class="card stat-card p-3 text-center">
+            <div class="text-muted small">👥 Total Users</div>
+            <h3>0</h3>
+            <small class="text-muted">Active Users: 0</small>
           </div>
-          <div class="table-responsive">
-            <table class="table table-sm align-middle">
-              <thead>
-                <tr>
-                  <th>Car</th>
-                  <th>Service</th>
-                  <th>Technician</th>
-                  <th>Total Cost</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Empty for now -->
-              </tbody>
-            </table>
+        </div>
+        <div class="col-md-3">
+          <div class="card stat-card p-3 text-center">
+            <div class="text-muted small">🧑‍🔧 Technicians</div>
+            <h3>0</h3>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card stat-card p-3 text-center">
+            <div class="text-muted small">📦 Inventory</div>
+            <h3>0</h3>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card stat-card p-3 text-center">
+            <div class="text-muted small">💰 Total Revenue</div>
+            <h3>0</h3>
           </div>
         </div>
       </div>
 
-      <!-- Technicians Table -->
-      <div class="col-lg-6">
-        <div class="card p-3">
-          <h5 class="mb-3">🧑‍🔧 Technicians</h5>
-          <div class="table-responsive">
-            <table class="table table-sm align-middle">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Specialty</th>
-                  <th>Experience</th>
-                  <th>Contact</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Empty for now -->
-              </tbody>
-            </table>
+      <!-- Recent Activity -->
+      <div class="card p-3 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="mb-0">Recent Activity</h5>
+          <input type="search" class="form-control w-auto" style="max-width: 280px;" placeholder="Search records" />
+        </div>
+        <div>
+          <p class="text-muted">No recent activity logged.</p>
+        </div>
+      </div>
+
+      <!-- Services Booked Table with Book Service Button -->
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card p-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="mb-0">📝 Services Booked</h5>
+              <a href="Booking.html" class="btn btn-primary btn-sm">+ Book Service</a>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-sm align-middle">
+                <thead>
+                  <tr>
+                    <th>Car</th>
+                    <th>Service</th>
+                    <th>Technician</th>
+                    <th>Total Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Empty for now -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technicians Table -->
+        <div class="col-lg-6">
+          <div class="card p-3">
+            <h5 class="mb-3">🧑‍🔧 Technicians</h5>
+            <div class="table-responsive">
+              <table class="table table-sm align-middle">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Specialty</th>
+                    <th>Experience</th>
+                    <th>Contact</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Empty for now -->
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Inventory Table -->
-    <div class="card p-3 mt-4">
-      <h5 class="mb-3">📦 Inventory</h5>
-      <div class="table-responsive">
-        <table class="table table-sm align-middle">
-          <thead>
-            <tr>
-              <th>Item-Name</th>
-              <th>Category</th>
-              <th>Quantity</th>
-              <th>Unit-Price</th>
-              <th>Supplier</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Empty for now -->
-          </tbody>
-        </table>
+      <!-- Inventory Table -->
+      <div class="card p-3 mt-4">
+        <h5 class="mb-3">📦 Inventory</h5>
+        <div class="table-responsive">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Item-Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Unit-Price</th>
+                <th>Supplier</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Empty for now -->
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
 
-    <!-- Notifications -->
-    <div class="card p-3 mt-4">
-      <h5 class="mb-3">🔔 Notifications</h5>
-      <div class="alert alert-warning">⚠️ No notifications yet</div>
-    </div>
+      <!-- Notifications -->
+      <div class="card p-3 mt-4">
+        <h5 class="mb-3">🔔 Notifications</h5>
+        <div class="alert alert-warning">⚠️ No notifications yet</div>
+      </div>
 
-  </div>
-    </main>
+    </div>
+  </main>
 
 </template>
 
 <style scoped>
+:root {
+  --primary: #4f46e5;
+  --secondary: #2563eb;
+  --accent: #16a34a;
+  --success: #15803d;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #475569;
+}
 
+body {
+  background: linear-gradient(135deg, #f7efe4 0%, #efe2cf 55%, #e7d8bc 100%);
+  background-image: url('https://res.cloudinary.com/na4iwacu/image/upload/v1784315664/OAS_background_vqd9xf.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
 
-         :root {
-      --primary: #4f46e5;
-      --secondary: #2563eb;
-      --accent: #16a34a;
-      --success: #15803d;
-      --surface: #ffffff;
-      --border: #e2e8f0;
-      --text: #0f172a;
-      --muted: #475569;
-    }
+.card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  background: var(--surface);
+}
 
-    body {
-      background: linear-gradient(135deg, #f7efe4 0%, #efe2cf 55%, #e7d8bc 100%);
-      background-image: url('https://res.cloudinary.com/na4iwacu/image/upload/v1784315664/OAS_background_vqd9xf.jpg');
-      background-size: cover;
-      background-position: center;
-      color: var(--text);
-      font-family: Arial, sans-serif;
-      min-height: 100vh;
-    }
+.stat-card {
+  min-height: 120px;
+  background: linear-gradient(135deg, #eef2ff, #f0fdf4);
+}
 
-    .card {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-      background: var(--surface);
-    }
+.table-responsive {
+  max-height: 360px;
+  overflow: auto;
+}
 
-    .stat-card {
-      min-height: 120px;
-      background: linear-gradient(135deg, #eef2ff, #f0fdf4);
-    }
+.table thead {
+  background: linear-gradient(90deg, #eef2ff, #f0fdf4);
+}
 
-    .table-responsive {
-      max-height: 360px;
-      overflow: auto;
-    }
+.table td,
+.table th {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.08);
+}
 
-    .table thead {
-      background: linear-gradient(90deg, #eef2ff, #f0fdf4);
-    }
+.badge {
+  background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+}
 
-    .table td, .table th {
-      color: var(--text);
-      border-color: rgba(255,255,255,0.08);
-    }
+.form-control {
+  background: #f8fafc;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
 
-    .badge {
-      background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
-    }
-
-    .form-control {
-      background: #f8fafc;
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,0.14);
-    }
-
-    .form-control:focus {
-      border-color: var(--secondary);
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.28);
-    }
-
-
+.form-control:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.28);
+}
 
 
 
-    /* ===== ADDED: Header + Navbar ===== */
+
+
+/* ===== ADDED: Header + Navbar ===== */
 header {
   background: rgba(30, 41, 59, 0.9);
   padding: 16px 0;
@@ -287,13 +286,15 @@ header {
   background: rgba(255, 255, 255, 0.85) !important;
 }
 
-.navbar-brand, .nav-link {
+.navbar-brand,
+.nav-link {
   font-weight: 600;
   color: var(--text) !important;
   transition: color 0.2s ease;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: var(--primary) !important;
 }
 
@@ -331,8 +332,15 @@ header {
 }
 
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(22, 163, 74, 0); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(22, 163, 74, 0);
+  }
 }
 
 /* ===== ADDED: Buttons ===== */
@@ -423,14 +431,13 @@ footer {
   .stat-card h3 {
     font-size: 1.5rem;
   }
-  
+
   .logo {
     font-size: 1.4rem;
   }
-  
+
   .navbar .form-control {
     margin-top: 8px;
   }
 }
-
 </style>
