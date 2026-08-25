@@ -2,7 +2,7 @@
 import { onMounted, reactive, ref } from 'vue'
 import JobCardForm from './components/JobCardForm.vue'
 import PartCard from './components/PartCard.vue'
-import ConfirmationCard from './components/ConfirmationCard.vue'
+import ConfirmationCard from './components/BayCard.vue/index.js'
 
 const jobCard = reactive({ plateNumber: '', ownerName: '', vehicleClass: 'Small', services: [], parts: [], labour: 20000 })
 const services = [

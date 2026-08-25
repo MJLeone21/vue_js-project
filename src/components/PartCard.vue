@@ -4,68 +4,92 @@ const props = defineProps({
   name: { type: String, required: true },
   unitPrice: { type: Number, required: true },
   qtyInStock: { type: Number, required: true },
-})
-const emit = defineEmits(['issue-part'])
-function issue() { emit('issue-part', props.id) }
+});
+const emit = defineEmits(["issue"]);
 </script>
 
 <template>
   <article class="part-card">
-    <div>
+    <div class="part-icon">◈</div>
+    <div class="part-info">
       <h3>{{ name }}</h3>
       <p>UGX {{ unitPrice.toLocaleString() }}</p>
-      <p>In stock: <strong>{{ qtyInStock }}</strong></p>
     </div>
-    <button v-if="qtyInStock > 0" type="button" @click="issue">Issue to Job</button>
-    <p v-else class="out-of-stock">Out of Stock</p>
+    <div class="stock">
+      <span>Stock</span><strong>{{ qtyInStock }}</strong>
+    </div>
+    <button v-if="qtyInStock > 0" class="btn btn-primary" type="button" @click="emit('issue', props.id)">
+      Issue to Job
+    </button>
+    <span v-else class="out-badge">Out of Stock</span>
   </article>
 </template>
 
 <style scoped>
 .part-card {
   align-items: center;
-  background: #fffbeb;
-  border: 1px solid #fde68a;
-  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #d8d2cc;
+  border-radius: 13px;
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: .85rem;
+  gap: 12px;
+  padding: 13px;
 }
 
-h3,
-p {
-  margin: 0;
+.part-icon {
+  align-items: center;
+  background: #fff1e6;
+  border-radius: 9px;
+  color: #b85612;
+  display: flex;
+  font-size: 1.1rem;
+  height: 38px;
+  justify-content: center;
+  width: 38px;
+}
+
+.part-info {
+  flex: 1;
 }
 
 h3 {
-  color: #78350f;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  margin: 0;
 }
 
 p {
-  color: #57534e;
-  font-size: .9rem;
-  margin-top: .25rem;
+  color: #738596;
+  font-size: 0.75rem;
+  margin: 2px 0 0;
 }
 
-button {
-  background: #b45309;
-  border: 0;
-  border-radius: 6px;
-  color: #fff;
-  cursor: pointer;
-  padding: .55rem .75rem;
-  white-space: nowrap;
+.stock {
+  display: grid;
+  min-width: 45px;
+  text-align: center;
 }
 
-button:hover {
-  background: #92400e;
+.stock span {
+  color: #8a9aaa;
+  font-size: 0.62rem;
+  text-transform: uppercase;
 }
 
-.out-of-stock {
-  color: #b91c1c;
-  font-weight: 700;
-  white-space: nowrap;
+.stock strong {
+  font-size: 0.95rem;
+}
+
+.out-badge {
+  background: #fff0ef;
+  border-radius: 7px;
+  color: #c0392b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 8px;
+}
+
+.btn {
+  font-size: 0.75rem;
+  padding: 8px 10px;
 }
 </style>
