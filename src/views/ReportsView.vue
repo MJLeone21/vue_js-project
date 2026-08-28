@@ -22,8 +22,8 @@ const cards = computed(() => [
     },
     {
         label: "Cars Serviced Today",
-        value: jobsStore.jobs.length,
-        note: "Job cards in this session",
+        value: jobsStore.carsServicedToday,
+        note: "Completed jobs closed today",
     },
     {
         label: "Low Stock Items",

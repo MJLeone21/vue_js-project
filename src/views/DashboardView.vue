@@ -39,7 +39,7 @@ onMounted(() => {
             <div class="stat-value">{{ partsStore.parts.length }}</div>
         </section>
         <section class="card stat">
-            <span class="stat-label">Session Revenue</span>
+            <span class="stat-label">Total Revenue</span>
             <div class="stat-value">{{ jobsStore.revenue.toLocaleString() }}</div>
             <small>UGX</small>
         </section>
@@ -53,7 +53,7 @@ onMounted(() => {
             <div v-for="bay in jobsStore.bays" :key="bay.id" class="dash-row">
                 <span><i :class="bay.status.toLowerCase()"></i>{{ bay.name }}</span><strong>{{
                     bay.status === "Busy" ? bay.currentPlate : "Free"
-                    }}</strong>
+                }}</strong>
             </div>
         </section>
         <section class="card">

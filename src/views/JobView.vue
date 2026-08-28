@@ -55,7 +55,7 @@ function completeJob() {
                                     .map((service) =>
                                         typeof service === "string" ? service : service.name,
                                     )
-                            .join(", ")
+                                    .join(", ")
                             }}
                         </dd>
                     </div>

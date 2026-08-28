@@ -37,6 +37,12 @@ export const useJobsStore = defineStore("jobs", () => {
   const activeJobs = computed(() =>
     jobs.value.filter((job) => job.status === "Open"),
   );
+  const carsServicedToday = computed(() => {
+    const today = new Date().toISOString().slice(0, 10);
+    return jobs.value.filter(
+      (job) => job.status === "Closed" && job.closedAt?.slice(0, 10) === today,
+    ).length;
+  });
 
   function servicesTotal(job) {
     return job.services.reduce((sum, service) => {
@@ -56,16 +62,29 @@ export const useJobsStore = defineStore("jobs", () => {
   }
 
   async function openJob(jobCard) {
+    if (loading.value) throw new Error("A job is already being saved.");
     loading.value = true;
     error.value = null;
 
     try {
+      const plateNumber = jobCard.plateNumber.trim().toUpperCase();
+      const selectedBay = bays.value.find((item) => item.name === jobCard.bay);
+      if (!/^[A-Z]{3}\s\d{3}[A-Z]$/.test(plateNumber))
+        throw new Error("Enter a valid plate number (for example, UBK 123A).");
+      if (!selectedBay || selectedBay.status !== "Free")
+        throw new Error(
+          "That bay is no longer free. Please select another bay.",
+        );
+      if (activeJobs.value.some((job) => job.plateNumber === plateNumber))
+        throw new Error("This vehicle already has an open job card.");
+
       let savedJob;
 
       if (USE_MOCK_API) {
         await new Promise((resolve) => setTimeout(resolve, 600));
         savedJob = {
           ...jobCard,
+          plateNumber,
           services: jobCard.services.map(
             (name) =>
               serviceCatalogue.find((item) => item.name === name) || name,
@@ -76,7 +95,7 @@ export const useJobsStore = defineStore("jobs", () => {
           partsTotal: partsTotal(jobCard),
           total: 20000 + servicesTotal(jobCard) + partsTotal(jobCard),
           status: "Open",
-          createdAt: new Date().toLocaleString(),
+          createdAt: new Date().toISOString(),
           closedAt: "",
         };
       } else {
@@ -91,13 +110,25 @@ export const useJobsStore = defineStore("jobs", () => {
         savedJob = data;
       }
 
-      jobs.value.push(savedJob);
+      // Re-check shared state after the request and persist the next state
+      // before changing the in-memory state, so a failed save cannot occupy a bay.
       const bay = bays.value.find((item) => item.name === savedJob.bay);
-      if (bay) {
-        bay.status = "Busy";
-        bay.currentPlate = savedJob.plateNumber;
-      }
-      persist(jobs.value, bays.value);
+      if (!bay || bay.status !== "Free")
+        throw new Error("That bay was assigned while this job was saving.");
+      if (
+        activeJobs.value.some((job) => job.plateNumber === savedJob.plateNumber)
+      )
+        throw new Error("This vehicle already has an open job card.");
+
+      const nextJobs = [...jobs.value, savedJob];
+      const nextBays = bays.value.map((item) =>
+        item.name === savedJob.bay
+          ? { ...item, status: "Busy", currentPlate: savedJob.plateNumber }
+          : { ...item },
+      );
+      persist(nextJobs, nextBays);
+      jobs.value = nextJobs;
+      bays.value = nextBays;
       return savedJob;
     } catch (requestError) {
       error.value = requestError.message || "Could not save the job card.";
@@ -112,7 +143,7 @@ export const useJobsStore = defineStore("jobs", () => {
     if (!job || job.status === "Closed") return false;
 
     job.status = "Closed";
-    job.closedAt = new Date().toLocaleString();
+    job.closedAt = new Date().toISOString();
     const bay = bays.value.find((item) => item.name === job.bay);
     if (bay) {
       bay.status = "Free";
@@ -130,6 +161,7 @@ export const useJobsStore = defineStore("jobs", () => {
     revenue,
     labourCollected,
     activeJobs,
+    carsServicedToday,
     openJob,
     closeJob,
   };

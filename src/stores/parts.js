@@ -52,13 +52,20 @@ export const usePartsStore = defineStore("parts", () => {
   }
 
   async function issuePart(id) {
+    // Check after the simulated request so rapid clicks cannot both issue the
+    // last item before either request updates the shared store.
+    await new Promise((resolve) => setTimeout(resolve, 250));
     const part = parts.value.find((item) => item.id === id);
     if (!part) throw new Error("Part not found.");
     if (part.qtyInStock <= 0) throw new Error("Out of stock");
 
-    await new Promise((resolve) => setTimeout(resolve, 250));
     part.qtyInStock -= 1;
-    persist(parts.value);
+    try {
+      persist(parts.value);
+    } catch (saveError) {
+      part.qtyInStock += 1;
+      throw new Error("Could not save the stock update. Please try again.");
+    }
     return { ...part };
   }
 
